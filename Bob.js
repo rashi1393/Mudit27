@@ -2,9 +2,9 @@ class Bob{
     constructor(x,y,radius){
         var options = {
             restitution: 1,
-            //density : 1.2,
-            //friction : 0.5,
-            isStatic : true,
+            density : 1.2,
+            friction : 0.5,
+            //isStatic : true,
            
         }
         this.body = Bodies.circle(x,y,radius,options);
@@ -15,10 +15,11 @@ class Bob{
 
     display(){
         var pos = this.body.position;
-        //imageMode(RADIUS);
+        push()
+        translate(pos.x, pos.y);
         ellipseMode(RADIUS);
         fill("PINK");
-        ellipse(pos.x,pos.y,this.radius,this.radius);
-        //image(this.image,pos.x, pos.y,70,70);
+        ellipse(0,0,this.radius,this.radius);        
+        pop();
     }
 }
